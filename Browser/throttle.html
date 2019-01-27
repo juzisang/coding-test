@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Throttle</title>
+    <script src="../JavaScript/throttle.js"></script>
+    <style>
+      body {
+        height: 3000px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      var i = 0;
+      var throttleTimerFun = throttleTimer(index => console.log("throttleTimerFun：", index), 1000);
+      var throttleFun = throttle(index => console.log("throttleFun：", index), 1000);
+      var timer = setInterval(() => {
+        i++;
+        // 会执行最后一次
+        throttleTimerFun(i);
+        // 可能不会执行最后一次，导致参数不对
+        throttleFun(i);
+      }, 100);
+      // end
+      setTimeout(() => {
+        clearInterval(timer);
+        console.log("end", i);
+      }, 2000);
+    </script>
+  </body>
+</html>
