@@ -8,5 +8,5 @@ Function.prototype.customBind = function(contnet) {
   };
 };
 
-const slice = [].slice.bind([1, 2, 3, 4, 5, 5]);
+const slice = [].slice.customBind([1, 2, 3, 4, 5, 5]);
 console.log(slice(1, 3));
