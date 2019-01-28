@@ -40,7 +40,7 @@ const staticServer = http.createServer(function(req, res) {
     res.writeHead(304, {
       "Content-Type": getContentType(ext),
       "Cache-Control": "no-cache",
-      Connection: "close",
+      Connection: "keep-alive",
       ETag,
       "Last-Modified": lastModified
     });
