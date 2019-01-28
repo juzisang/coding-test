@@ -55,7 +55,12 @@ const staticServer = http.createServer(function(req, res) {
       ETag,
       "Last-Modified": lastModified
     });
-    setTimeout(() => res.end(file), 500);
+    const time = url.searchParams.get("time");
+    if (time) {
+      setTimeout(() => res.end(file), parseInt(time));
+    } else {
+      res.end(file);
+    }
   });
 });
 
