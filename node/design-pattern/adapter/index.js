@@ -1,3 +1,8 @@
+/**
+ * 旧接口格式和使用者不兼容
+ * 中间加一个适配器转换接口
+ */
+
 class TargetTest {
   ajax() {
     console.log("ajax");

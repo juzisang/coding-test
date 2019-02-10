@@ -1,3 +1,8 @@
+/**
+ * 系统中被唯一使用
+ * 一个类只有一个实例
+ */
+
 function getSingleObject(ClassName) {
   let single = null;
   return () => {

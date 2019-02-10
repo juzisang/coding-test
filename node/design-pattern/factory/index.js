@@ -1,3 +1,8 @@
+/**
+ * 将 new 操作单独封装
+ * 遇到 new 时，就要考虑是否该使用工厂模式
+ */
+
 class Product {
   constructor(name) {
     this.name = name;

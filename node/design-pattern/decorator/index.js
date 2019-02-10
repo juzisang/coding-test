@@ -1,3 +1,8 @@
+/**
+ * 为对象添加新功能
+ * 不改变其原有的结构和功能
+ */
+
 function addDecorator(target, before, after) {
   return (...args) => {
     before(...args);
