@@ -10,8 +10,12 @@
   <body>
     <script>
       ajax({
-        type: "get",
+        type: "put",
         url: "http://localhost:8082/cache",
+        headers: {
+          XXX: 123,
+          s: 22
+        },
         success(data) {
           console.log(data);
         }

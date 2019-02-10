@@ -1,15 +1,29 @@
-function ajax(req) {
-  const _req = Object.assign({ type: "get", url: "/", success: function() {}, error: function() {} }, req);
-  let http = new XMLHttpRequest();
-  http.onreadstatechange = function() {
-    if (http.readyState === 4 && http.readyState >= 200 && http.readyState < 400) {
-      _req.success(http.responseText);
+(function(window) {
+  function ajax(params) {
+    // 参数
+    params = Object.assign({}, { type: "GET", url: "/", success: () => null, error: () => null, headers: {}, timeout: 5000 }, params);
+    const http = new XMLHttpRequest();
+    // 方法 url
+    http.open(params.type, params.url, true);
+    // 超时时间
+    http.timeout = params.timeout;
+    // header
+    Object.keys(params.headers).forEach(key => http.setRequestHeader(key, params.headers[key]));
+    // ok
+    http.addEventListener("load", () => http.status >= 200 && http.status < 300 && params.success(parseResponse(http)));
+    // error
+    http.addEventListener("error", error => params.error(error));
+    http.send();
+  }
+
+  function parseResponse(xmlHttp) {
+    if (xmlHttp.responseType === "json") {
+      return JSON.parse(xmlHttp.responseText);
+    } else {
+      // ...
+      return xmlHttp.responseText;
     }
-  };
-  http.onerror = function(err) {
-    _req.error(err);
-  };
-  http.open(_req.type, _req.url, true);
-  http.send();
-}
-console.log(11);
+  }
+
+  window.ajax = ajax;
+})(window);

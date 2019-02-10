@@ -7,7 +7,7 @@ function ajax(params) {
   // 超时时间
   http.timeout = params.timeout;
   // header
-  Object.keys(params.headers, key => http.setRequestHeader(key, params.headers[key]));
+  Object.keys(params.headers).forEach(key => http.setRequestHeader(key, params.headers[key]));
   // ok
   http.addEventListener("load", () => http.status >= 200 && http.status < 300 && params.success(parseResponse(http)));
   // error

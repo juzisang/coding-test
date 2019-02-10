@@ -70,7 +70,10 @@ const ajaxServer = http.createServer(function(req, res) {
     case "/cache":
       res.writeHead("200", {
         "Content-Type": "application/json;",
-        "Access-Control-Allow-Origin": "http://localhost:8081"
+        "Access-Control-Allow-Origin": "http://localhost:8081",
+        "Access-Control-Allow-Headers": "*",
+        "Access-Control-Allow-Methods": "*",
+        "Access-Control-Max-Age": 10000
       });
       return res.end('console.log("Hello Wrold")');
   }
