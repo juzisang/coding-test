@@ -1,3 +1,7 @@
+/**
+ * 为一个对象提供一种代理以方便对它的访问。
+ */
+
 class NetworkImg {
   connect() {
     console.log("内部网络连接");
