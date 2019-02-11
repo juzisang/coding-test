@@ -1,8 +1,27 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
+  // 优化项
+  optimization: {
+    // 压缩
+    minimizer: [
+      // webpack 默认项，如果我们需要自定义 minimizer 项，这一项必须填写，否则 js 将不会压缩
+      new UglifyJsPlugin({
+        // 是否开启缓存
+        cache: true,
+        // 是否是并发压缩
+        parallel: true,
+        // 开启源码映射
+        sourceMap: true
+      }),
+      // 压缩 css
+      new OptimizeCSSAssetsPlugin()
+    ]
+  },
   // 模式，默认两种， production development
   mode: "production",
   // 入口
@@ -83,6 +102,8 @@ module.exports = {
           // "style-loader",
           // css 解析
           "css-loader",
+          // 加上 前置处理器，自动加前缀
+          "postcss-loader",
           // 将 less 转化成 css
           "less-loader"
         ]

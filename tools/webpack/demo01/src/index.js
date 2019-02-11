@@ -1,6 +1,6 @@
-let str = require("./a");
+// let str = require("./a");
 
-console.log(str);
+// console.log(str);
 
 require("./index.css");
 
