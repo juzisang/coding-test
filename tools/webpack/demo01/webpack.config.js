@@ -5,6 +5,8 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
+  // 模式，默认两种， production development
+  mode: "development",
   // 优化项
   optimization: {
     // 压缩
@@ -22,8 +24,6 @@ module.exports = {
       new OptimizeCSSAssetsPlugin()
     ]
   },
-  // 模式，默认两种， production development
-  mode: "production",
   // 入口
   entry: "./src/index.js",
   output: {
@@ -106,6 +106,37 @@ module.exports = {
           "postcss-loader",
           // 将 less 转化成 css
           "less-loader"
+        ]
+      },
+      // 处理 js
+      {
+        test: /\.js$/,
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              // 将 es6 转换成 es5
+              presets: ["@babel/preset-env"],
+              include: path.resolve(__dirname, "src"),
+              exclude: /node_modules/,
+              plugins: [
+                // 装饰器
+                [
+                  "@babel/plugin-proposal-decorators",
+                  {
+                    // 宽松模式
+                    legacy: true
+                  }
+                ],
+                // class 属性 可以直接赋值
+                ["@babel/plugin-proposal-class-properties", { legacy: true }],
+                // 用来解决 引入 其它js时，会直接将代码复制过来，重复的问题
+                // 比如，a 引入 b，打包之后，b 中的代码将会直接复制到 a 中，而 b 还单独存在，导致代码重复
+                // 这个就是解决这个问题，a b ，都单独存在，而不是 a 引入 b，a = a + b
+                "@babel/plugin-transform-runtime"
+              ]
+            }
+          }
         ]
       }
     ]
