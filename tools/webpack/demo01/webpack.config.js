@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   // 模式，默认两种， production development
@@ -13,6 +14,7 @@ module.exports = {
     path: path.resolve("dist")
   },
   // 开发服务器 配置
+  // webpack-dev-server 必须使用这个命令来运行，才会使用这里的配置
   devServer: {
     // 端口你
     port: 3000,
@@ -23,7 +25,9 @@ module.exports = {
     // 压缩
     compress: true
   },
+  // 插件使用顺序没有先后
   plugins: [
+    // Html 插件
     new HtmlWebpackPlugin({
       // 模板路径
       template: "./src/index.html",
@@ -38,12 +42,18 @@ module.exports = {
         // 折叠空行
         collapseWhitespace: true
       }
+    }),
+    // 将 css 抽离
+    new MiniCssExtractPlugin({
+      // 处理处的 css 名
+      filename: "main.css"
     })
   ],
   // 模块处理
   module: {
     // 文件处理规则
     rules: [
+      // 处理 css
       {
         test: /\.css$/,
         // loader 执行循序，是从右至左执行，从下至上执行
@@ -62,11 +72,20 @@ module.exports = {
           "css-loader"
         ]
       },
+      //处理 less
       {
         test: /\.less$/,
-        use: {
-          loader: "less-loader"
-        }
+        // 将 css 插入到 style 中
+        use: [
+          // 使用 MiniCssExtractPlugin 导出，这里也需要写 loader，替换 style 插入
+          // 同理，其它 css 想导出 ，也是这样用
+          MiniCssExtractPlugin.loader,
+          // "style-loader",
+          // css 解析
+          "css-loader",
+          // 将 less 转化成 css
+          "less-loader"
+        ]
       }
     ]
   }
