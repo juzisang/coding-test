@@ -1,7 +1,11 @@
 const path = require("path");
+// 处理 HTML 配置
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+// 导出 css
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// css 压缩
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+// js 压缩
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
