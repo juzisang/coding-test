@@ -1,10 +1,8 @@
-let str = require("./a");
+import * as str from "./a";
+import "./index.css";
+import "./index.less";
 
 console.log(str);
-
-require("./index.css");
-
-require("./index.less");
 
 const fn = () => {
   console.log(1111);

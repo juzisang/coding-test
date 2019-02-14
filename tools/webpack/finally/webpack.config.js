@@ -134,9 +134,8 @@ module.exports = {
                 ],
                 // class 属性 可以直接赋值
                 ["@babel/plugin-proposal-class-properties", { legacy: true }],
-                // 用来解决 引入 其它js时，会直接将代码复制过来，重复的问题
-                // 比如，a 引入 b，打包之后，b 中的代码将会直接复制到 a 中，而 b 还单独存在，导致代码重复
-                // 这个就是解决这个问题，a b ，都单独存在，而不是 a 引入 b，a = a + b
+                // 帮我们做语法转换，比如 promise 的语法转换，并且添加转换之后的 es5 方法
+                // 帮我们将各个模块中的公用代码提取出来
                 "@babel/plugin-transform-runtime"
               ]
             }
