@@ -1,3 +1,4 @@
+import "@babel/polyfill";
 import * as str from "./a";
 import "./index.css";
 import "./index.less";

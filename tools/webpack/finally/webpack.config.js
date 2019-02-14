@@ -112,6 +112,19 @@ module.exports = {
           "less-loader"
         ]
       },
+      // 代码校验
+      // {
+      //   test: /\.js$/,
+      //   use: [
+      //     {
+      //       loader: "eslint-loader",
+      //       options: {
+      //         // pre在最前面执行，使用 post，就是在代码之后执行
+      //         enforce: "pre"
+      //       }
+      //     }
+      //   ]
+      // },
       // 处理 js
       {
         test: /\.js$/,
@@ -136,6 +149,7 @@ module.exports = {
                 ["@babel/plugin-proposal-class-properties", { legacy: true }],
                 // 帮我们做语法转换，比如 promise 的语法转换，并且添加转换之后的 es5 方法
                 // 帮我们将各个模块中的公用代码提取出来
+                // 但是 es6 中实例新增的方法，这个包不会帮我们添加 需要在代码中引入 @babel/polyfill
                 "@babel/plugin-transform-runtime"
               ]
             }
