@@ -9,8 +9,8 @@
     - [发布&订阅&观察者](node/design-pattern/observer/index.js)
     - [代理模式](node/design-pattern/observer/index.js)
   - Http
-    - [Node 模拟 Http 缓存](node/http/index.js)
-    - [CORS 头](node/http/index.js)
+    - [Node 模拟 Http 缓存](node/http/index.js#L19)
+    - [CORS 头](node/http/index.js#L67)
 - Tools
   - Webpack
     - [基础配置，及打包文件源码分析](tools/webpack/demo01)
