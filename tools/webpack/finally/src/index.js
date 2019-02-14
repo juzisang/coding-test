@@ -1,23 +1,8 @@
 import "@babel/polyfill";
-import * as str from "./a";
-import "./index.css";
-import "./index.less";
 
-console.log(str);
+// 内联 loader 暴露 $ 到全局
+// import $ from "expose-loader?$!jquery";
+// import "jquery";
+// 或者直接引入jquery的cdn
 
-const fn = () => {
-  console.log(1111);
-};
-
-fn();
-
-function OwO() {
-  console.log("Owo");
-}
-
-class A {
-  a = 1;
-
-  @OwO
-  test() {}
-}
+console.log($);

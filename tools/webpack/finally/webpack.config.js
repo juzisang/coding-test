@@ -7,6 +7,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 // js 压缩
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+// 在每个模块中注入 全局变量
+const ProvidePlugin = require("webpack").ProvidePlugin;
 
 module.exports = {
   // 模式，默认两种， production development
@@ -70,12 +72,27 @@ module.exports = {
     new MiniCssExtractPlugin({
       // 处理处的 css 名
       filename: "main.css"
+    }),
+    // 往模块中注入变量
+    new ProvidePlugin({
+      $: "jquery"
     })
   ],
   // 模块处理
   module: {
     // 文件处理规则
     rules: [
+      // 暴露 $ 到 windows
+      // 注意：还是需要在js中 import 才能在window.$上使用
+      {
+        test: require.resolve("jquery"),
+        use: [
+          {
+            loader: "expose-loader",
+            options: "$"
+          }
+        ]
+      },
       // 处理 css
       {
         test: /\.css$/,
