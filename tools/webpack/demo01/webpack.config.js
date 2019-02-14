@@ -15,5 +15,3 @@ module.exports = {
     path: path.resolve("dist")
   }
 };
-
-console.log(path.resolve("dist"));
