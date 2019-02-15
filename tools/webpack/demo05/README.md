@@ -1,3 +1,9 @@
+## 依赖
+
+```bash
+yarn add webpack-dev-server -D
+```
+
 ## 开发服务器
 
 ```js

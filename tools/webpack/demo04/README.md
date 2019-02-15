@@ -1,3 +1,8 @@
+## 依赖
+```bash
+yarn add babel-loader @babel/core @babel/plugin-proposal-class-properties @babel/plugin-proposal-decorators @babel/plugin-transform-runtime @babel/preset-env -D
+```
+
 ## babel 配置
 
 ```js

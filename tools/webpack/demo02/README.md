@@ -1,3 +1,9 @@
+## 依赖
+
+```bash
+yarn add html-webpack-plugin -D
+```
+
 ## 引入 Html 模板
 
 主要是利用 `html-webpack-plugin` 插件实现 `html` 模板
