@@ -18,6 +18,8 @@
     - [CSS 压缩 导出 预处理](tools/webpack/demo03)
     - [Babel ES6 语法转换](tools/webpack/demo04)
     - [开发服务 热更新](tools/webpack/demo05)
+    - [Eslint 规范](tools/webpack/demo06)
+    - [全局变量](tools/webpack/demo07)
 - Web
   - [Ajax](web/ajax.js)
   - [自定义 apply 函数](web/apply.js)
