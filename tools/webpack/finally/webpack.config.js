@@ -41,7 +41,7 @@ module.exports = {
   // 表示这个模块是外部引入，不需要打包
   externals: {
     // 不打包 jquery
-    jquery:"$"
+    jquery: "$"
   },
   // 开发服务器 配置
   // webpack-dev-server 必须使用这个命令来运行，才会使用这里的配置
@@ -104,17 +104,20 @@ module.exports = {
         // loader 执行循序，是从右至左执行，从下至上执行
         use: [
           // loader 也可以传入一个对象
-          {
-            // 将 css 插入 head 中
-            loader: "style-loader",
-            // style-loader 的配置
-            options: {
-              // 插入到顶部，默认是底部
-              insertAt: "top"
-            }
-          },
+          // {
+          //   // 将 css 插入 head 中
+          //   loader: "style-loader",
+          //   // style-loader 的配置
+          //   options: {
+          //     // 插入到顶部，默认是底部
+          //     insertAt: "top"
+          //   }
+          // },
+          MiniCssExtractPlugin.loader,
           // 解析 css @import 语法
-          "css-loader"
+          "css-loader",
+          // 加上 前置处理器，自动加前缀
+          "postcss-loader"
         ]
       },
       //处理 less
