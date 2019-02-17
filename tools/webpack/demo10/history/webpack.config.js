@@ -1,6 +1,5 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 // 1) cleanWebpackPlugin
 // 2) copyWebpackPlugin
@@ -40,7 +39,6 @@ module.exports = {
       template: "./index.html",
       filename: "index.html"
     }),
-    new CleanWebpackPlugin("./dist")
   ],
   module: {
     rules: [

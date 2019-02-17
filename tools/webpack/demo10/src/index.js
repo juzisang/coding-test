@@ -6,4 +6,4 @@ class Log {
 
 new Log();
 
-console.log('222');
+console.log('22233332222');
