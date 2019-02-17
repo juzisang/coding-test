@@ -1,3 +1,5 @@
+const path = require("path");
+
 /**
  * 啥都不用加，这就是打包js
  */
