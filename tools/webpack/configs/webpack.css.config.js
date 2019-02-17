@@ -5,6 +5,8 @@ const path = require("path");
  * 基本 css 配置
  */
 const cssWebpackConfig = {
+  // production development
+  mode: "development",
   // 入口 string array object
   entry: "./src/main.js",
   // 出口
@@ -67,13 +69,13 @@ const cssWebpackConfig = {
 
 // =================================================================================
 
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const UglifyjsWebpackPlugin = require("uglifyjs-webpack-plugin");
-const OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plugin");
 /**
  * yarn add css-loader mini-css-extract-plugin optimize-css-assets-webpack-plugin uglifyjs-webpack-plugin -D
  * css 导出
  */
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const UglifyjsWebpackPlugin = require("uglifyjs-webpack-plugin");
+const OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plugin");
 const cssExtWebpackConfig = Object.assign(cssWebpackConfig, {
   // 优化项 production mode 会走这里
   optimization: {
@@ -118,7 +120,7 @@ const cssExtWebpackConfig = Object.assign(cssWebpackConfig, {
 /**
  * yarn add postcss-loader autoprefixer -D
  * touch postcss.config.js
- * add PostCss
+ * 添加 PostCss
  */
 const postCssWebpackConfig = Object.assign(cssExtWebpackConfig, {
   module: {
