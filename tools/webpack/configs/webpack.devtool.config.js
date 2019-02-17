@@ -3,7 +3,7 @@ const path = require("path");
 /**
  * devtool 说明
  */
-const jsWebpackConfig = {
+const devtoolWebpackConfig = {
   mode: "development",
   entry: "./src/main.js",
   // 配置 源码映射，会生成一个 sourcemap文件，会标识当前log的位置

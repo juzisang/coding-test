@@ -3,7 +3,7 @@ const path = require("path");
 /**
  * watch 说明
  */
-const jsWebpackConfig = {
+const watchWebpackConfig = {
   mode: "development",
   entry: "./src/main.js",
   output: {
