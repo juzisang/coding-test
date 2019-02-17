@@ -16,7 +16,7 @@ module.exports = {
   ],
   // webpack-dev-server 必须使用这个命令来运行，才会使用这里的配置
   devServer: {
-    // 端口你
+    // 端口
     port: 3000,
     // 进度条
     progress: true,
