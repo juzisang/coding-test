@@ -29,3 +29,11 @@ const copyWebpackConfig = Object.assign({}, cleanWebpackConfig, {
     })
   ]
 });
+
+/**
+ * 版权声明，会在每个模块中顶部加入版权声明
+ */
+const BannerPlugin = require("webpack").BannerPlugin;
+const banneWebpackConfig = Object.assign({}, cleanWebpackConfig, {
+  plugins: [new BannerPlugin("make 2018 my")]
+});
