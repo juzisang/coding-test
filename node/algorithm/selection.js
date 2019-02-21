@@ -1,6 +1,6 @@
-const { swap, randomArray, isSort } = require("./helper");
+const { swap, randomArray, isSort, sortTime } = require("./helper");
 
-function sort(array) {
+function sort(array, log) {
   let n = array.length;
   for (let i = 0; i < n; i++) {
     // 寻找 [i,n] 直接的最小值
@@ -12,13 +12,12 @@ function sort(array) {
       }
     }
     swap(array, i, minIndex);
+    log();
   }
 }
 
-const array = randomArray(10, 10, 300);
-
-console.log("start:", array);
-
-sort(array);
-
-console.log("end:", isSort(array), ":", array);
+sortTime({
+  array: randomArray(10, 10, 300),
+  process: true,
+  sort
+});
