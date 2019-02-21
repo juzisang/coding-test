@@ -33,16 +33,20 @@ function isSort(array) {
  * 计算排序时间
  */
 function sortTime(obj) {
-  console.log("start:", obj.array);
+  if (obj.print) {
+    console.log("start:", obj.array);
+  }
   let startTime = Date.now();
   let num = 0;
   obj.sort(obj.array, () => {
-    if (obj.process) {
+    if (obj.print) {
       console.log(`${++num}:`, obj.array);
     }
   });
   let endTime = Date.now();
-  console.log("end:", obj.array);
+  if (obj.print) {
+    console.log("end:", obj.array);
+  }
   console.log("sort:", isSort(obj.array));
   console.log("time:", endTime - startTime);
 }

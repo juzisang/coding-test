@@ -17,7 +17,7 @@ function sort(array, log) {
 }
 
 sortTime({
-  array: randomArray(10, 10, 300),
-  process: true,
+  array: randomArray(20000, 10, 300),
+  print: false,
   sort
 });
