@@ -1,9 +1,12 @@
-const { swap, randomArray, isSort, sortTime } = require("./helper");
+const { swap, randomArray, sortTime } = require("./helper");
 
+/**
+ * 每次循环找出最小的元素，交换到最前面
+ */
 function sort(array, log) {
   let n = array.length;
   for (let i = 0; i < n; i++) {
-    // 寻找 [i,n] 直接的最小值
+    // 寻找 [i,n] 之间的最小值
     let minIndex = i;
     for (let j = i + 1; j < n; j++) {
       // 与当前找到的自小值做对比
@@ -11,6 +14,7 @@ function sort(array, log) {
         minIndex = j;
       }
     }
+    // 切换
     swap(array, i, minIndex);
     log();
   }

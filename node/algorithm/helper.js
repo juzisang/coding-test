@@ -18,6 +18,19 @@ function randomArray(length, rangeMin, rangeMax) {
 }
 
 /**
+ * 生成一个近乎有序的数组
+ */
+function randomOrderArray(length, num) {
+  const array = Array.from({ length }, (v, i) => i);
+  for (let i = 0; i < num; i++) {
+    let l = parseInt(Math.random() * length);
+    let r = parseInt(Math.random() * length);
+    swap(array, l, r);
+  }
+  return array;
+}
+
+/**
  * 判断是否是从小到大排序
  */
 function isSort(array) {
@@ -51,9 +64,15 @@ function sortTime(obj) {
   console.log("time:", endTime - startTime);
 }
 
+function copyArray(array) {
+  return JSON.parse(JSON.stringify(array));
+}
+
 module.exports = {
   swap,
   randomArray,
+  randomOrderArray,
   isSort,
-  sortTime
+  sortTime,
+  copyArray
 };
