@@ -1,6 +1,6 @@
 const { sortTime, swap, randomArray } = require("./helper");
 
-function sort(array, log) {
+function dobbleSort(array, log) {
   const n = array.length;
   for (let i = 0; i < n - 1; i++) {
     for (let j = 1; j < n - i; j++) {
@@ -14,8 +14,12 @@ function sort(array, log) {
   }
 }
 
-sortTime({
-  array: randomArray(10, 1, 100),
-  print: true,
-  sort
-});
+// sortTime({
+//   array: randomArray(10, 1, 100),
+//   print: true,
+//   sort
+// });
+
+module.exports = {
+  dobbleSort
+};
