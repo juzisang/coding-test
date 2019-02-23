@@ -51,16 +51,16 @@ function sortTime(obj) {
   }
   let startTime = Date.now();
   let num = 0;
-  obj.sort(obj.array, () => {
+  const result = obj.sort(obj.array, () => {
     if (obj.print) {
       console.log(`${++num}:`, obj.array);
     }
   });
   let endTime = Date.now();
   if (obj.print) {
-    console.log("end:", obj.array);
+    console.log("end:", result || obj.array);
   }
-  console.log("sort:", isSort(obj.array));
+  console.log("sort:", isSort(result || obj.array));
   console.log("time:", endTime - startTime);
 }
 
