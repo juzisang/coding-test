@@ -1,119 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/echarts@4.1.0/dist/echarts.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue-echarts@4.0.2"></script>
-  </head>
-  <body>
-    <style>
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-      }
-      .item {
-        /* A4纸的尺寸是210mm*297mm */
-        /* 794×1123 */
-        /* height: 1123px; */
-        /* width:794px; */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .item1 {
-        background-color: gray;
-      }
-      .item2 {
-        background-color: black;
-      }
-    </style>
-    <section class="item item1">
-      <div id="demo1">
-        <vue-echarts :options="options"></vue-echarts>
-      </div>
-      <script>
-        Vue.component("vue-echarts", window.VueECharts);
-        new Vue({
-          el: "#demo1",
-          data() {
-            return {
-              options: {
-                xAxis: {
-                  type: "category",
-                  boundaryGap: false,
-                  data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-                },
-                yAxis: {
-                  type: "value"
-                },
-                series: [
-                  {
-                    data: [820, 932, 901, 934, 1290, 1330, 1320],
-                    type: "line",
-                    areaStyle: {}
-                  }
-                ]
-              }
-            };
-          }
-        });
-      </script>
-    </section>
-    <section class="item item2">
-      <div id="demo2">
-        <vue-echarts :options="options"></vue-echarts>
-      </div>
-      <script>
-        Vue.component("vue-echarts", window.VueECharts);
-        new Vue({
-          el: "#demo2",
-          data() {
-            return {
-              options: {
-                angleAxis: {},
-                radiusAxis: {
-                  type: "category",
-                  data: ["周一", "周二", "周三", "周四"],
-                  z: 10
-                },
-                polar: {},
-                series: [
-                  {
-                    type: "bar",
-                    data: [1, 2, 3, 4],
-                    coordinateSystem: "polar",
-                    name: "A",
-                    stack: "a"
-                  },
-                  {
-                    type: "bar",
-                    data: [2, 4, 6, 8],
-                    coordinateSystem: "polar",
-                    name: "B",
-                    stack: "a"
-                  },
-                  {
-                    type: "bar",
-                    data: [1, 2, 3, 4],
-                    coordinateSystem: "polar",
-                    name: "C",
-                    stack: "a"
-                  }
-                ],
-                legend: {
-                  show: true,
-                  data: ["A", "B", "C"]
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Print</title>
+  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@4.1.0/dist/echarts.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-echarts@4.0.2"></script>
+</head>
+
+<body>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .item {
+      /* A4纸的尺寸是210mm*297mm */
+      /* 794×1123 */
+      height: 297mm;
+      width: 100%;
+      /* width: 210mm; */
+      /* height: 1123px; */
+      /* width:794px; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .item1 {
+      background-color: gray;
+    }
+
+    .item2 {
+      background-color: black;
+    }
+  </style>
+  <section class="item item1">
+    <div id="demo1">
+      <vue-echarts :options="options"></vue-echarts>
+    </div>
+    <script>
+      Vue.component("vue-echarts", window.VueECharts);
+      new Vue({
+        el: "#demo1",
+        data() {
+          return {
+            options: {
+              xAxis: {
+                type: "category",
+                boundaryGap: false,
+                data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+              },
+              yAxis: {
+                type: "value"
+              },
+              series: [
+                {
+                  data: [820, 932, 901, 934, 1290, 1330, 1320],
+                  type: "line",
+                  areaStyle: {}
                 }
+              ]
+            }
+          };
+        }
+      });
+    </script>
+  </section>
+  <section class="item item2">
+    <div id="demo2">
+      <vue-echarts :options="options"></vue-echarts>
+    </div>
+    <script>
+      Vue.component("vue-echarts", window.VueECharts);
+      new Vue({
+        el: "#demo2",
+        data() {
+          return {
+            options: {
+              angleAxis: {},
+              radiusAxis: {
+                type: "category",
+                data: ["周一", "周二", "周三", "周四"],
+                z: 10
+              },
+              polar: {},
+              series: [
+                {
+                  type: "bar",
+                  data: [1, 2, 3, 4],
+                  coordinateSystem: "polar",
+                  name: "A",
+                  stack: "a"
+                },
+                {
+                  type: "bar",
+                  data: [2, 4, 6, 8],
+                  coordinateSystem: "polar",
+                  name: "B",
+                  stack: "a"
+                },
+                {
+                  type: "bar",
+                  data: [1, 2, 3, 4],
+                  coordinateSystem: "polar",
+                  name: "C",
+                  stack: "a"
+                }
+              ],
+              legend: {
+                show: true,
+                data: ["A", "B", "C"]
               }
-            };
-          }
-        });
-      </script>
-    </section>
-  </body>
+            }
+          };
+        }
+      });
+    </script>
+  </section>
+</body>
+
 </html>
