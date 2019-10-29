@@ -1,0 +1,15 @@
+.img img {
+  width: 200px;
+  height: 200px;
+}
+.html img {
+  width: 200px;
+  height: 200px;
+}
+
+.bg {
+  width: 200px;
+  height: 200px;
+  background: url("./img.jpg");
+  background-size: cover;
+}
