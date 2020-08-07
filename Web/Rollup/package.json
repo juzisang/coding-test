@@ -1,0 +1,31 @@
+{
+  "name": "rollup",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development nollup --config rollup.config.js",
+    "build": "cross-env NODE_ENV=production rollup --config rollup.config.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/runtime": "^7.11.2",
+    "@rollup/plugin-babel": "^5.1.0",
+    "@rollup/plugin-commonjs": "^14.0.0",
+    "@rollup/plugin-node-resolve": "^8.4.0",
+    "autoprefixer": "^9.8.6",
+    "cross-env": "^7.0.2",
+    "nollup": "^0.13.2",
+    "rollup": "^2.23.0",
+    "rollup-plugin-postcss": "^3.1.4",
+    "rollup-plugin-typescript2": "^0.27.1",
+    "sass": "^1.26.10",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5"
+  }
+}
